@@ -127,6 +127,8 @@ function foo(value: number): string {
   assert(['bar', 'foo'].includes(result), 'result must be either "bar" or "foo"', {
     value, result,
   })
+
+  return result;
 }
 ```
 
