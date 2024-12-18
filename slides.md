@@ -176,3 +176,12 @@ funciont assertDebug(truth: boolean, msg: string, context: object) {
 <!--
 "Assertions привносит строгость в поток выполнения/использования кода через валидацию данных и условий при этом не фиксируя реализацию кучей отдельно лежажих юнит тестов. Если нужно что-то поменять, ничего не нужно искать, вся ключавая логики и ограничения доступны прямо на месте и позволяют легче принимать решения о внесении изменений"
 -->
+
+---
+
+# Для ознакомления
+
+- https://tigerstyle.dev
+- https://eugeny-dementev.github.io/tigerstyle/
+- https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md
+
