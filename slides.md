@@ -60,7 +60,6 @@ Assertions
 - `lib.ts`
 ```ts
 function foo(value: number): string {
-  if (value === 3) return 'foo';
   if (value === 5) return 'bar';
 
   throw new Error('Invalid value');
@@ -70,17 +69,11 @@ function foo(value: number): string {
 - `lib.unit.ts`
 ```ts
 describe('foo', ()=>{
-  it('should return foo on 3',()=>{
-    assert(foo(3) === 'foo', 'should return foo');
-  });
   it('should return foo on 5',()=>{
     assert(foo(5) === 'bar', 'should return bar');
   });
   it('should return foo on 6',()=>{
     assert.throws(foo(6), 'should throw on 6');
-  });
-  it('should return foo on 7',()=>{
-    assert.throws(foo(7), 'should throw on 7');
   });
 });
 ```
@@ -95,10 +88,8 @@ describe('foo', ()=>{
 Самая полезная часть
 
 ```ts
-assert(foo(3) === 'foo', 'should return foo');
 assert(foo(5) === 'bar', 'should return bar');
 assert.throws(foo(6), 'should throw on 6');
-assert.throws(foo(7), 'should throw on 7');
 ```
 
 - 🟢 Плюсы
@@ -121,12 +112,11 @@ assert.throws(foo(7), 'should throw on 7');
 import { assert } from 'tiger-assert';
 
 function foo(value: number): string {
-  assert([3, 5].includes(value), "value must be either 3 or 5", { value });
+  assert(value === 5, "value must be 5", { value });
 
   let result = 'bar';
-  if (value === 3) result = 'foo';
 
-  assert(['bar', 'foo'].includes(result), 'result must be either "bar" or "foo"', {
+  assert(result === 'bar', 'result must be "bar"', {
     value, result,
   })
 
