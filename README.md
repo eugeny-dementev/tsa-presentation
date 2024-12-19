@@ -1,11 +1,7 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+# Tiget Style Assertions presentation for dev meetup
 
-To start the slide show:
+https://eugeny-dementev.github.io/tsa-presentation
 
-- `npm install`
-- `npm run dev`
-- visit <http://localhost:3030>
+## About
 
-Edit the [slides.md](./slides.md) to see the changes.
-
-Learn more about Slidev at the [documentation](https://sli.dev/).
+Made using [slidev](https://sli.dev/)
