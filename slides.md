@@ -83,7 +83,7 @@ describe('foo', ()=>{
 -->
 ---
 
-# Assertions
+# Ключ к успеху
 
 Самая полезная часть
 
@@ -104,7 +104,7 @@ assert.throws(foo(6), 'should throw on 6');
 
 ---
 
-# Assertions
+# Tiger Style Assertions
 
 - `lib.ts`
 
@@ -116,17 +116,50 @@ function foo(value: number): string {
 
   let result = 'bar';
 
-  assert(result === 'bar', 'result must be "bar"', {
-    value, result,
-  })
+  assert(result === 'bar', 'result must be "bar"', { value, result })
 
   return result;
 }
 ```
 
 <!--
-Почему бы не взять эту пользу и не поместить её туда где в ней самая большая необходимость
+Почему бы не взять эту пользу и не поместить её туда где в ней самая большая необходимость. Самый быстрый способо ощутить пользу от такого подхода можно при разработки новой фичи. Пишим новый код, сразу фиксируем его ограничения, валидируем поток данных и ождиния который у нас есть от кода который пишем
 -->
+
+---
+
+# Более живой пример
+
+```ts
+function emitIceCandidateToCaller(candidate: RTCIceCandidate, targetSocketId: Socket['id']) {
+  assert.isString(targetSocketId, 'targetSocketId should be a non-empty Socket["id"] string');
+  assert.is(targetSocketId, this.store.callerSocketId, 'should only emit ice candidates to caller');
+
+  const payload: IceCandidateFront = {
+    ...frontToBack,
+    candidate,
+    targetSocketId,
+  };
+
+  console.log(`Emitting ${SIGNALING_EVENT.ICE_CANDIDATE_FROM_CALLEE}`, payload);
+
+  this.socket.emit(SIGNALING_EVENT.ICE_CANDIDATE_FROM_CALLEE, payload);
+}
+```
+
+---
+
+# Проверка параметров метода либы
+
+```ts
+function addIngredient(ingredient) {
+  assert.oneOf(ingredient, Object.values(Ingredient), 'Ингредиент должен быть одим из значений объекта Ingredients');
+
+  this.#ingredients.push(ingredient);
+
+  return this;
+}
+```
 
 ---
 
@@ -135,6 +168,7 @@ function foo(value: number): string {
 - 📚 Документация сразу в коде
 - 🧹 Уменшение необходимости чрезмерного юнит тестирования (e2e/интеграция)
 - ⚡ Моментадльная обратная связь о некорректном использовании кода при внесении изменений
+- 🐅 Легкость внесения изменений в код в условиях постоянно меняющихся требований от продукта
 - 🛠️ Контекст для дебага
 - 💪 Уверенность в коде
 
