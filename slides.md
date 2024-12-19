@@ -205,7 +205,7 @@ funciont assertDebug(truth: boolean, msg: string, context: object) {
 
 # Для ознакомления
 
+- https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md
 - https://tigerstyle.dev
 - https://eugeny-dementev.github.io/tigerstyle/
-- https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md
 
